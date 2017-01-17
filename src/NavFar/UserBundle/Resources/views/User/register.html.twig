@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+
+	  <title>ثبت نام</title>
+	  <meta name="description" content="ثبت نام در سایت">
+	  <meta name="author" content="NavidFarahmand">
+	  <link rel="stylesheet" href="{{ asset('styles/hw2-global.css') }}">
+		<link rel="stylesheet" href="{{ asset('styles/material-icons.css') }}">
+	  <link rel="stylesheet" href="{{ asset('styles/register.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
+	</head>
+	<body>
+		<nav>
+			<div class="navContainer">
+				<span class="material-icons navIcon toLeft">person</span><span class="toRight navLogo">CEITGames</span>
+			</div>
+		</nav>
+		<div class="bodyContainer">
+			<div class="bodyTitle">
+ثبت نام			</div>
+			<form class="formContainer" action="{{path('register')}}">
+					<input  type="text" name="username"  placeholder="نام کاربری من" class="formInputs"><span   class ="formIcon material-icons ">person</span>
+					<input id="email"  type="email" name="email"  placeholder="رایانامه" class="formInputs"><span   class ="formIcon material-icons ">email</span>
+				 	<input id="passwd" type="password" name="emailORNumber" placeholder="رمز عبور" class="formInputs"><span  class ="material-icons formIcon">lock</span>
+					<span class="licenseStatment"><a href="#" class="licenseAccept">قوانین</a>می پذیرم.</span><input type="checkbox" name="AcceptLicense" id="licenseCheckBox"  class="formInputs"><label for="licenseCheckBox" class="checkboxLabel material-icons"> check_box</label>
+					<input type="button" name="submit" value="ثبت نام" class="submitButton">
+        <div id="emailInform" class="inform">
+
+        </div>
+        <div id="passwdInform" class="inform">
+
+        </div>
+        </form>
+	</div>
+	 </body>
+
+</html>
