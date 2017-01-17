@@ -19,21 +19,31 @@
 				<span class="material-icons navIcon toLeft">person</span><span class="toRight navLogo">CEITGames</span>
 			</div>
 		</nav>
+		{% if Error is defined %}
+		<div class="inform red lastAtemp" >
+			{% for errorMessage in ErrorMessages %}
+				{{errorMessage}}<br>
+			{% endfor %}
+		</div>
+		{% endif%}
 		<div class="bodyContainer">
+
 			<div class="bodyTitle">
 ثبت نام			</div>
-			<form class="formContainer" action="{{path('register')}}">
-					<input  type="text" name="username"  placeholder="نام کاربری من" class="formInputs"><span   class ="formIcon material-icons ">person</span>
-					<input id="email"  type="email" name="email"  placeholder="رایانامه" class="formInputs"><span   class ="formIcon material-icons ">email</span>
-				 	<input id="passwd" type="password" name="emailORNumber" placeholder="رمز عبور" class="formInputs"><span  class ="material-icons formIcon">lock</span>
-					<span class="licenseStatment"><a href="#" class="licenseAccept">قوانین</a>می پذیرم.</span><input type="checkbox" name="AcceptLicense" id="licenseCheckBox"  class="formInputs"><label for="licenseCheckBox" class="checkboxLabel material-icons"> check_box</label>
-					<input type="button" name="submit" value="ثبت نام" class="submitButton">
-        <div id="emailInform" class="inform">
+			<form class="formContainer" action="{{path('registerPOST')}}" method="POST">
+					<input   type="text" name="username"  placeholder="نام کاربری من" class="formInputs"><span   class ="formIcon material-icons ">person</span>
+					<input   id="email"  type="email" name="email"  placeholder="رایانامه" class="formInputs"><span   class ="formIcon material-icons ">email</span>
+				 	<input   id="passwd" type="password" name="passwd" placeholder="رمز عبور" class="formInputs"><span  class ="material-icons formIcon">lock</span>
+					<span class="licenseStatment"><a href="#" class="licenseAccept">قوانین</a>می پذیرم.</span><input required  type="checkbox" name="AcceptLicense" id="licenseCheckBox"  class="formInputs"><label for="licenseCheckBox" class="checkboxLabel material-icons"> check_box</label>
+					<input type="submit" name="submit" value="ثبت نام" class="submitButton">
+
+				<div id="emailInform" class="inform">
 
         </div>
         <div id="passwdInform" class="inform">
 
         </div>
+
         </form>
 	</div>
 	 </body>

@@ -5,12 +5,13 @@ namespace NavFar\UtilityBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class UtilityController extends Controller
 {
     /**
      * @Route("/emailchecker",name="emailChecker")
-     * @method({"POST"})
+     * @Method({"POST"})
      */
     public function emailCheckerAction(Request $request)
     {
@@ -25,7 +26,7 @@ class UtilityController extends Controller
 
     /**
      * @Route("/passwordchecker",name="passwordChecker")
-     * @method({"POST"})
+     * @Method({"POST"})
      */
     public function passwordCheckerAction(Request $request)
     {

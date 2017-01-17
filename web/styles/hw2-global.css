@@ -183,3 +183,13 @@ Media queries for Responsive view
 	   src: url('../fonts/Shabnam-Light.ttf') format('truetype');
 	   font-weight: 300;
 	 }
+.lastAtemp{
+	direction: rtl;
+	text-align: center;
+	width:23%;
+	background-color: yellow;
+	margin:0 auto;
+	margin-bottom: -55px;
+	margin-top: 80px;
+	font-size: 17px;
+}
