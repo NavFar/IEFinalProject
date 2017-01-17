@@ -1,0 +1,185 @@
+/* 	global css rules in hw2 pages like font-family (@font-face), boxes, and login-register inputs
+	author: NavidFarahmand;
+*/
+*{
+	font-family: Shabnam;
+}
+body
+{
+	background-color:#4175a5;
+}
+nav	 {
+	position: fixed ;
+	top:0;
+	left:0;
+	right:0;
+	color:#fdfdfd;
+	margin: 0 0 0 0;
+	background-color: #4d4d4d;
+	align-content: center;
+}
+a{
+    border-bottom: 1px solid currentColor;
+    text-decoration: none;
+    margin: 0 0 25px 5px;
+}
+a:hover{
+  color: #d9346c;
+}
+.navContainer{
+	margin:0 auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.toLeft
+{
+	float:left;
+}
+.toRight{
+	float:right;
+}
+.bodyContainer{
+	margin:0 auto;
+	background-color: #f5f5f5;
+}
+.formContainer{
+  text-align: center;
+}
+.formInputs{
+  text-decoration: none;
+  float:left;
+  width:88%;
+  direction:rtl;
+  margin:20px 0 20px 0px;
+  font-size:22px;
+   border: 0;
+   outline: 0;
+   background: transparent;
+   border-bottom: 2px solid #7f7e82 ;
+   display: inline-block;!important;
+   float:left!important;
+}
+.formIcon{
+  float:right;
+  display:inline-block;
+  float:right;width:8%;
+  height:100%;
+  font-size:40px!important;
+  margin-top:18px;
+
+}
+.formInputs:hover + .formIcon,.formIcon:hover{
+  color: #d9346c!important;
+}
+.formInputs:hover{
+  border-bottom: 2px solid #d9346c!important;
+}
+.formInputs:focus + .formIcon,.formIcon:focus{
+  color: #0af41a!important;
+}
+.formInputs:focus{
+  border-bottom: 2px solid #0af41a!important;
+}
+.submitButton{
+    font-size:30px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #2879ff;
+    color:#f5f5f5;
+    width: 100%;
+    margin: 25px 0 25px 0;
+    padding: 8px 0 8px 0;
+    box-shadow: 6px 6px 8px #888888;
+}
+.submitButton:hover{
+  background-color: #d9346c;
+}
+.submitButton:focus{
+  background-color: #0af41a;
+}
+.bodyContainer{
+  box-shadow: 6px 6px 8px #888888;
+}
+.navIcon{
+}
+.navLogo{
+}
+
+/*
+Media queries for Responsive view
+*/
+
+	 /* Extra Small Devices, Phones */
+	 @media only screen and (min-width : 480px) {
+
+	 }
+
+	 /* Small Devices, Tablets */
+	 @media only screen and (min-width : 768px) {
+
+	 }
+
+	 /* Medium Devices, Desktops */
+	 @media only screen and (min-width : 992px) {
+		 .navContainer{
+			 width: 70%;
+		 }
+		 .navLogo{
+			 font-size:30px!important;
+		 }
+		 .navIcon{
+		 	font-size:50px!important;
+		 }
+		 .bodyContainer{
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-bottom: 20px;
+			padding-top: 30px;
+			margin-top: 92px;
+			width: 18%;
+		 }
+		 .endBodyContainer{
+			 text-align: center;
+			 margin-top:-0px!important;
+			 background-color: #e3e3e3;
+ 		 	 box-shadow: 6px 6px 8px #888888;
+		 		 }
+		 .centerAlign{
+			 text-align: center;
+		 }
+		 div.bodyContainer{
+			 color: #808080;
+		 }
+		 .bodyTitle{
+			 margin-bottom: 60px;
+			 font-size:30px;
+			 text-align: center;
+			 font-weight: bold;
+		 }
+	 }
+
+	 /* Large Devices, Wide Screens */
+	 @media only screen and (min-width : 1200px) {
+
+	 }
+
+/*
+	Define Fonts for all pages
+*/
+	 @font-face {
+	   font-family: Shabnam;
+	   src: url('../fonts/Shabnam.ttf') format('truetype');
+	   font-weight: normal;
+	 }
+
+	 @font-face {
+	   font-family: Shabnam;
+	   src: url('../fonts/Shabnam-Bold.ttf') format('truetype');
+	   font-weight: bold;
+	 }
+
+	 @font-face {
+	   font-family: Shabnam;
+	   src: url('../fonts/Shabnam-Light.ttf') format('truetype');
+	   font-weight: 300;
+	 }
