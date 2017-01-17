@@ -1,0 +1,4 @@
+services:
+#    nav_far_utility.example:
+#        class: NavFar\UtilityBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
