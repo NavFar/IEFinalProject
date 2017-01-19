@@ -1,3 +1,8 @@
+nav_far_game:
+    resource: "@NavFarGameBundle/Resources/config/routing.xml"
+    prefix:   /
+
+
 nav_far_user:
     resource: "@NavFarUserBundle/Controller/"
     type:     annotation
@@ -11,6 +16,6 @@ nav_far_utility:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-    
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

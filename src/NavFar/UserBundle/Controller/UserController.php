@@ -232,20 +232,31 @@ class UserController extends Controller
       $repository = $em->getRepository('NavFarUserBundle:User');
       $user=$repository->findOneBy(array('username' => $username));
       $Newusername=$request->request->get('username');
+      $Newusername=str_replace(" ","",$Newusername);
       $Newpassword=$request->request->get('passwd');
-      // $avatar=$request->request->get('avatar');
-      // $fileName = md5(uniqid()).'.'.$avatar->guessExtension();
+      $Newpassword=str_replace(" ","",$Newpassword);
+      $Newavatar=$request->files->get('avatar');
+
+      if($Newavatar){
+      $fileName = md5(uniqid()).'.'.$Newavatar->guessExtension();
+      $Newavatar->move(
+               $this->getParameter('avatar_directory'),
+               $fileName
+           );
+      $user->setImage($fileName); 
+      }
       $user->setUsername($Newusername);
       $user->setPassWord($Newpassword);
       $uppercase = preg_match('@[A-Z]@', $Newpassword);
       $lowercase = preg_match('@[a-z]@', $Newpassword);
       $number    = preg_match('@[0-9]@', $Newpassword);
-      if(!$uppercase || !$lowercase || !$number || strlen($Newpassword) < 6) {
+      if(!$uppercase || !$lowercase || !$number || strlen($Newpassword) < 6||strlen($Newusername)==0) {
         throw new \Exception('Bad Password');
       }
       $em->persist($user);
       $em->flush();
       }catch(\Exception $e){
+        // dump($e);die();
         $oldUser=$repository->findOneBy(array('username' => $username));
         $ErrorMessages=array("اطلاعات وارد شده قابل تغییر نیست");
 

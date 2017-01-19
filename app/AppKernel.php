@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new NavFar\UtilityBundle\NavFarUtilityBundle(),
             new NavFar\UserBundle\NavFarUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new NavFar\GameBundle\NavFarGameBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

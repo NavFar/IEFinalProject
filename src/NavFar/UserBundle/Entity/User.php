@@ -55,6 +55,17 @@ class User
      * @ORM\Column(name="image", type="string", length=255)
      */
      private $image="/avatar/default.png";
+
+     /**
+     * @ORM\OneToMany(targetEntity="NavFar\GameBundle\Entity\Score", mappedBy="user")
+     */
+     private $scores;
+
+     /**
+     * @ORM\OneToMany(targetEntity="NavFar\GameBundle\Entity\Comments", mappedBy="user")
+     */
+     private $comments;
+
     /**
      * Get id
      *
@@ -183,5 +194,81 @@ class User
     public function getImage()
     {
         return $this->image;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->scores = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add score
+     *
+     * @param \NavFar\GameBundle\Entity\Score $score
+     *
+     * @return User
+     */
+    public function addScore(\NavFar\GameBundle\Entity\Score $score)
+    {
+        $this->scores[] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Remove score
+     *
+     * @param \NavFar\GameBundle\Entity\Score $score
+     */
+    public function removeScore(\NavFar\GameBundle\Entity\Score $score)
+    {
+        $this->scores->removeElement($score);
+    }
+
+    /**
+     * Get scores
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getScores()
+    {
+        return $this->scores;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \NavFar\GameBundle\Entity\Comments $comment
+     *
+     * @return User
+     */
+    public function addComment(\NavFar\GameBundle\Entity\Comments $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \NavFar\GameBundle\Entity\Comments $comment
+     */
+    public function removeComment(\NavFar\GameBundle\Entity\Comments $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

@@ -55,6 +55,17 @@ class User
      * @ORM\Column(name="image", type="string", length=255)
      */
      private $image="/avatar/default.png";
+
+     /**
+     * @ORM\OneToMany(targetEntity="NavFar\GameBundle\Entity\Score", mappedBy="user")
+     */
+     private $scores;
+
+     /**
+     * @ORM\OneToMany(targetEntity="NavFar\GameBundle\Entity\Comments", mappedBy="user")
+     */
+     private $comments;
+
     /**
      * Get id
      *
@@ -159,5 +170,29 @@ class User
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return User
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

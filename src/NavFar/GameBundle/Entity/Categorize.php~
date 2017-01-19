@@ -1,0 +1,45 @@
+<?php
+
+namespace NavFar\GameBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categorize
+ *
+ * @ORM\Table(name="categorize")
+ * @ORM\Entity(repositoryClass="NavFar\GameBundle\Repository\CategorizeRepository")
+ */
+class Categorize
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="Game", inversedBy="categorizes")
+    * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
+    */
+    private $game;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="Category", inversedBy="categorizes")
+    * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+    */
+    private $category;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

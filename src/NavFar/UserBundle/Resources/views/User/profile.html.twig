@@ -35,7 +35,7 @@
 			<div class='profileImage'>
 				<img src={{asset('avatar/' ~ user.image)}}/>
 			</div>
-			<form class="formContainer" action="{{addressPOST}}" method="POST">
+			<form class="formContainer" action="{{addressPOST}}" enctype='multipart/form-data' method="POST">
 					<input  type="text" name="username"
 
 					value={{user.username}}
@@ -47,7 +47,7 @@
 
 					 placeholder="رمز عبور" class="formInputs"><span  class ="material-icons formIcon">lock</span>
 
-				  <input class ="inputfile" id="avatar" name="avatar" type="file" placeholder="Add profile picture" />
+				  <input id="avatar" name="avatar" type="file" accept="image/*">
 					<input type="submit" name="submit" value="تغییر اطلاعات" class="submitButton">
 				</form>
 	</div>
