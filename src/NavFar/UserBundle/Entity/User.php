@@ -49,7 +49,12 @@ class User
      */
     private $active;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+     private $image="/avatar/default.png";
     /**
      * Get id
      *
@@ -154,5 +159,29 @@ class User
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return User
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

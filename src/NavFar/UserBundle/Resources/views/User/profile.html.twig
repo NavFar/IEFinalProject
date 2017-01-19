@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+
+	  <title>ورود</title>
+	  <meta name="description" content="ورود به سایت">
+	  <meta name="author" content="NavidFarahmand">
+		<!-- Links -->
+    <link rel="stylesheet" href="{{ asset('styles/hw2-global.css') }}">
+		<link rel="stylesheet" href="{{ asset('styles/material-icons.css') }}">
+		<link rel="stylesheet" href="{{ asset('styles/login.css') }}">
+		<link rel="stylesheet" href="{{ asset('styles/profile.css') }}">
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	</head>
+	<body>
+		<nav>
+			<div class="navContainer">
+				<span href={{addressGET}} class="changer material-icons navIcon toLeft">person</span><span class="toRight navLogo">CEITGames</span>
+			</div>
+		</nav>
+		</div>
+		{% if ErrorMessages is defined %}
+		<div class="inform red lastAtemp" >
+			{% for errorMessage in ErrorMessages %}
+				{{errorMessage}}<br>
+			{% endfor %}
+		</div>
+		{% endif%}
+		<div class="bodyContainer">
+			<div class="bodyTitle">
+				اطلاعات کاربر
+			</div>
+			<div class='profileImage'>
+				<img src={{asset('avatar/' ~ user.image)}}/>
+			</div>
+			<form class="formContainer" action="{{addressPOST}}" method="POST">
+					<input  type="text" name="username"
+
+					value={{user.username}}
+
+					  placeholder="نام کاربری شما" class="formInputs"><span   class ="formIcon material-icons ">email</span>
+				 	<input type="password" name="passwd"
+
+					value={{user.password}}
+
+					 placeholder="رمز عبور" class="formInputs"><span  class ="material-icons formIcon">lock</span>
+
+				  <input class ="inputfile" id="avatar" name="avatar" type="file" placeholder="Add profile picture" />
+					<input type="submit" name="submit" value="تغییر اطلاعات" class="submitButton">
+				</form>
+	</div>
+</body>
+
+</html>

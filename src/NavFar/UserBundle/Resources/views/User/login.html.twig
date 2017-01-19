@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+
+	  <title>ورود</title>
+	  <meta name="description" content="ورود به سایت">
+	  <meta name="author" content="NavidFarahmand">
+		<!-- Links -->
+    <link rel="stylesheet" href="{{ asset('styles/hw2-global.css') }}">
+		<link rel="stylesheet" href="{{ asset('styles/material-icons.css') }}">
+		<link rel="stylesheet" href="{{ asset('styles/login.css') }}">
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	</head>
+	<body>
+		<nav>
+			<div class="navContainer">
+				<span class="material-icons navIcon toLeft">person</span><span class="toRight navLogo">CEITGames</span>
+			</div>
+		</nav>
+		{% if ErrorMessages is defined %}
+		<div class="inform red lastAtemp" >
+			{% for errorMessage in ErrorMessages %}
+				{{errorMessage}}<br>
+			{% endfor %}
+		</div>
+		{% endif%}
+		<div class="bodyContainer">
+			<div class="bodyTitle">
+				ورود
+			</div>
+			<form class="formContainer" action="{{path('loginPOST')}}" method="POST">
+					<input  type="text" name="email"
+					{% if email is defined %}
+					value={{email}}
+					{% endif %}
+					  placeholder="ایمیل یا شماره تلفن" class="formInputs"><span   class ="formIcon material-icons ">email</span>
+				 	<input type="password" name="passwd"
+					{% if password is defined %}
+					value={{password}}
+					{% endif %}
+					 placeholder="رمز عبور" class="formInputs"><span  class ="material-icons formIcon">lock</span>
+					<span class="licenseStatment">مرا به خاطر بسپار</span><input   type="checkbox" name="rememberMe" id="rememberMe"  class="formInputs"><label for="rememberMe" class="checkboxLabel material-icons"> check_box</label>
+					<input type="submit" name="submit" value="ورود" class="submitButton">
+				<a href="#" class="forgotLink">رمزمو یادم رفته</a>
+				</form>
+	</div>
+	<div class="bodyContainer endBodyContainer" >
+		حساب کاربری نداری؟
+		<a class="createAccountLink"  href="{{path('registerGET')}}">
+			ثبت نام کن
+		</a>
+	</div>
+</body>
+
+</html>

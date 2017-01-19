@@ -1,0 +1,23 @@
+.changer{
+  margin:0;
+}
+
+.profileImage{
+
+  /*width: 50%;*/
+  margin: 0 auto!important;
+  /*margin-left: 10%;*/
+}
+.profileImage img{
+  width: 320px;
+  height: 270px;
+}
+.inform{
+  font-size:25px;
+}
+.red{
+  color:red;
+}
+.green{
+  color:green;
+}
