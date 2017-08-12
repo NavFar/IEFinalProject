@@ -1,5 +1,6 @@
 nav_far_game:
-    resource: "@NavFarGameBundle/Resources/config/routing.xml"
+    resource: "@NavFarGameBundle/Controller/"
+    type:     annotation
     prefix:   /
 
 

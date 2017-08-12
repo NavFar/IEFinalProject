@@ -1,0 +1,321 @@
+.poster{
+  width: 100%;
+  height: 710px;
+  /*background-image: url("../assets/call-of-duty-background-18.jpg");*/
+  background: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
+  /*,url("../assets/call-of-duty-background-18.jpg");*/
+   background-size: cover!important;
+  background-repeat:no-repeat;
+  position: relative;
+
+}
+.posterText{
+  padding-top: 11%;
+  direction: rtl;
+  color: rgb(255,255,255);
+  /*text-align:center;*/
+}
+.posterText #tit{
+  font-size: 75px;
+  margin-top: -10px!important;
+  margin-bottom: 30px;
+  height: 50%!important;
+}
+.posterText #desc{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+#logs button{
+  margin-top: 25px;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#signin{
+color: rgb(255,255,255);
+}
+#link{
+  font-size: 30px!important;
+  color: rgb(255,255,255);
+  padding: 0!important;
+  display: inline-block!important;
+  margin-top: 25px;
+  font-size: 20px;
+  text-decoration:none;
+  /*margin-right: -55px;*/
+}
+#posterButtons{
+  margin-top: 40px;
+
+}
+#posterButtons button{
+  font-size: 30px!important;
+}
+#trailer{
+  color: rgb(255, 255, 255);
+  font-size: 30px!important;
+  margin-right: 20px;
+}
+#trailer:hover{
+  color: gray;
+}
+.bottomPoster{
+  width: 100%;
+  height: 550px;
+    background: linear-gradient(to bottom,rgba(26, 140, 202, 0.85), rgba(26, 140, 202, 0.85)),url("../assets/best_hd_assassins_creed_black_flag_game_wallpapers.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+    font-size: 75px;
+}
+.bottomPosterSmall{
+  padding-top: 150px;
+}
+ #second{
+  font-size: 40px!important;
+  padding-top: 40px;
+}
+#joinus{
+  color: gray;
+  font-size: 40px!important;
+  background-color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: inline-block;;
+  border-radius: 25px;
+}
+#tusuContainer{
+  background-color: #f9f9f9;
+  /*clear: both;*/
+}
+#tusuContainer h1{
+  margin: 0;
+  color: black;
+}
+#tusu{
+  padding-top:  40px;
+  padding-bottom:  40px;
+  font-size: 25px;
+  color: #7c7c7c;
+  overflow: hidden;
+  padding-right: 50px;
+}
+#tu{
+  width: 45%;
+}
+#su{
+  width: 45%;
+  overflow: hidden;
+}
+#su .comment{
+  margin-top: 10px;
+  border-bottom: solid!important;
+  border-width: 1px;
+  border-color: #e1e1e1;
+  padding-top: 0px;
+}
+#su:last-child{
+border-bottom: none;
+}
+#su .picture{
+  border-radius: 50%;
+  float: right;
+  width: 65px;
+  height: 65px;
+  margin-left: 10px;
+  /*background-image: url("../assets/photo_2016-05-20_16-34-49.jpg");*/
+  background-size: cover!important;
+  background-repeat: no-repeat!important;
+
+}
+#su .cont{
+  margin-right: 0px!important;
+  color: #029be7;
+  font-size: 18px;
+  font-weight: bold;
+}
+#su .date{
+  margin-right: 65px;
+  color: #7d7d7d;
+  margin-top: 0px;
+  font-size: 18px;
+  margin-bottom : 10px;
+}
+#tu .tutur{
+  margin-top: 10px;
+  border-bottom: solid!important;
+  border-width: 1px;
+  border-color: #e1e1e1;
+  padding-top: 0px;
+}
+#tu:last-child{
+border-bottom: none;
+}
+#tu .picture{
+  margin-top: 10px;
+  float: right;
+  width: 75px;
+  height: 50px;
+  margin-left: 10px;
+  background-image: url("../assets/421645.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#tu .cont{
+  margin-right: 0px!important;
+  color: #029be7;
+  font-size: 20px;
+  font-weight: bold;
+}
+#tu .date{
+  margin-right: 65px;
+  color: #7d7d7d;
+  margin-top: 5px;
+  margin-bottom : 5px;
+  font-size: 18px;
+}
+.cusitems{
+display: inline;
+text-align: center!important;
+}
+#secondOwl .owl-dot{
+  margin-top: 15px;
+  float: left;
+  font-size: 40px;
+}
+#carousel-custom-dots{
+  /*list-style-type: none;*/
+}
+.gameList{
+  display: inline;
+  overflow: hidden;
+  font-size: 20px;
+  width: 200px;
+}
+.gameListImage{
+  float: right;
+  width: 200px;
+  height: 160px;
+  margin: 0;
+  margin-right: 15px;
+
+  background-image: url('../assets/thmub.jpg');
+  background-repeat: no-repeat;
+  background-size: cover!important;
+}
+.gameListStar{
+  color:#c9c9c9;
+  float: right;
+  clear: both;
+  margin: 0;
+  margin-right: 15px;
+}
+.gameListName{
+  float: right;
+  margin-right: 0;
+  clear: both;
+  margin-right: 15px;
+
+}
+.gameListType{
+  float: right;
+  clear: both;
+  margin-right: 15px;
+
+}
+#secondOwl .owl-item:hover{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px  15px #888888;
+}
+.gameListContainer{
+  /*margin-top: 15px;*/
+  padding-bottom: 15px!important;
+  height: 380px;
+  /*padding-left: 15px;*/
+  /*overflow: visible;;*/
+  padding-right: 25px;
+}
+#secondOwl .owl-carousel .owl-item{
+  padding-top: 15px!important ;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  position: relative;
+
+}
+#secondOwl .owl-carousel .owl-item #first{
+margin-left: 15px!important;
+}
+.changer{
+  width: 265px;
+  height: 200px;
+  /*background-image: url('../assets/thmub.jpg');*/
+  background-repeat: no-repeat;
+  background-size: cover!important;
+  transition: height 0.5s;
+  transition: width 0.5s;
+  position: relative!important;
+}
+.inner{
+  width: 100%;
+  height: 100%;
+  padding-top: 15%;
+  visibility: hidden;
+  text-align: center;
+  color: white;
+
+}
+
+.changer:hover .inner{
+  visibility:visible;
+  background-color: #0095e5!important;
+}
+.changer:hover{
+  position: absolute;
+  height: 230px;
+  top:-15px!important;
+  left:-15px!important;
+  width: 295px;
+  z-index: 100;
+
+}
+.gameName{
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+.numComment{
+  margin-bottom: 20px;
+
+}
+.numComment::before{
+  content: "تعداد نظرات : ";
+}
+.slider-btn
+{
+  color: black;
+}
+.justClass{
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /*background-color: red!important;*/
+}
+#firstOwl{
+  height: 300px!important;
+  padding-bottom: 20px!important;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#firstOwl .inner{
+  /*margin-left: -50px!important;*/
+}
+#firstOwl .owl-carousel .owl-item{
+  margin-left: -50px!important;
+}
+#firstOwl .active{
+
+}

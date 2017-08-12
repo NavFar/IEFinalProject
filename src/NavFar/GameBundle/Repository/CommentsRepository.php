@@ -10,4 +10,9 @@ namespace NavFar\GameBundle\Repository;
  */
 class CommentsRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getLastComments($max=5){
+    $em=$this->getEntityManager();
+    $query=$em->createQuery('SELECT c FROM NavFarGameBundle:Comments c order by c.id DESC');
+    return $query->getResult();
+  }
 }

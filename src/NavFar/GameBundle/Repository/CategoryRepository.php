@@ -2,6 +2,12 @@
 
 namespace NavFar\GameBundle\Repository;
 
+use NavFar\GameBundle\Entity\Game;
+use NavFar\GameBundle\Entity\Score;
+use NavFar\GameBundle\Entity\Comments;
+use NavFar\GameBundle\Entity\Category;
+use NavFar\GameBundle\Entity\Categorize;
+
 /**
  * CategoryRepository
  *
@@ -10,4 +16,23 @@ namespace NavFar\GameBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function maxRateGameCategory(){
+      $em=$this->getEntityManager();
+      $query=$em->createQuery("SELECT c FROM NavFarGameBundle:Category c");
+      $categories=$query->getResult();
+      $resultGames=array();
+      for($i=0;$i<sizeof($categories);$i++){
+        $tempMaxScore=0;
+        $tempGame=0;
+        $tempCategorizes=$categories[$i]->getCategorizes();
+        for($j=0;$j<sizeof($tempCategorizes);$j++){
+          if($tempCategorizes[$j]->getGame()->getRate()>$tempMaxScore){
+            $tempMaxScore=$tempCategorizes[$j]->getGame()->getRate();
+            $tempGame=$tempCategorizes[$j]->getGame();
+          }
+        }
+        $resultGames[]=$tempGame;
+      }
+      return $resultGames;
+  }
 }

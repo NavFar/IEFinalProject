@@ -39,7 +39,7 @@ class UserController extends Controller
      * @Route("/register",name="registerGET")
      * @Method({"GET"})
      */
-    public function registerActionGET()
+    public function registerActionGET(Request $request)
     {
       if($this->isLoggedIn($request)){
         return  $this->redirectToRoute('home');
@@ -121,6 +121,9 @@ class UserController extends Controller
     * @Method({"GET"})
     */
     public function loginActionGet(Request $request){
+        $session = $request->getSession();
+
+
         if($this->isLoggedIn($request)){
           return  $this->redirectToRoute('home');
         }
@@ -150,8 +153,16 @@ class UserController extends Controller
           return $this->render('NavFarUserBundle:User:login.html.twig',array('ErrorMessages'=>$ErrorMessages));
         }
         else {
-          $response = $this->redirectToRoute('home');
           $session = $request->getSession();
+          $flag=false;
+          foreach ($session->getFlashBag()->get('url', array()) as $url) {
+            $flag=true;
+            $response = $this->redirect($url);
+            break;
+          }
+          if(!$flag)
+          $response = $this->redirectToRoute('home');
+
           $session->set('username', $user->getUsername());
           if($rememberMe){
             $response->headers->setCookie(new Cookie("email",$email));
@@ -182,7 +193,8 @@ class UserController extends Controller
       if($this->isLoggedIn($request)){
         $request->getSession()->remove('username');
       }
-      return  $this->redirectToRoute('home');
+      // dump($request->headers->get('referer'));die();
+      return  $this->redirect($request->headers->get('referer'));
     }
     /**
      * @Route("/profile/{username}",name="profileGET")
@@ -240,10 +252,10 @@ class UserController extends Controller
       if($Newavatar){
       $fileName = md5(uniqid()).'.'.$Newavatar->guessExtension();
       $Newavatar->move(
-               $this->getParameter('avatar_directory'),
+               $this->getParameter('store_directory'),
                $fileName
            );
-      $user->setImage($fileName); 
+      $user->setImage($fileName);
       }
       $user->setUsername($Newusername);
       $user->setPassWord($Newpassword);
@@ -256,7 +268,7 @@ class UserController extends Controller
       $em->persist($user);
       $em->flush();
       }catch(\Exception $e){
-        // dump($e);die();
+        dump($e);die();
         $oldUser=$repository->findOneBy(array('username' => $username));
         $ErrorMessages=array("اطلاعات وارد شده قابل تغییر نیست");
 

@@ -58,9 +58,9 @@ class Game
     private $largeImage;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="rate", type="integer")
+     * @ORM\Column(name="rate", type="float")
      */
     private $rate;
 
@@ -342,5 +342,25 @@ class Game
     public function getCategorizes()
     {
         return $this->categorizes;
+    }
+    public function __toString(){
+
+    }
+    public function toArray($baseURL){
+      return      array("title"=>$this->title,
+                  "abstract"=>$this->abstract,
+                  "info"=>$this->info,
+                  "rate"=>$this->rate,
+                  "number_of_comments"=>sizeof($this->comments),
+                  "large_image"=>$baseURL.$this->largeImage,
+                  "small_image"=>$baseURL.$this->smallImage,
+                  "categories"=>$this->allCategories());
+    }
+    public function allCategories(){
+      $temp =  array();
+      for($i=0;$i<sizeof($this->categorizes);$i++){
+        $temp[]=$this->categorizes[$i]->getCategory()->getName();
+      }
+      return $temp;
     }
 }

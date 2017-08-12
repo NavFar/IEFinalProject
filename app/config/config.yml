@@ -4,13 +4,15 @@ imports:
     - { resource: services.yml }
     - { resource: "@NavFarUtilityBundle/Resources/config/services.yml" }
     - { resource: "@NavFarUserBundle/Resources/config/services.yml" }
-    
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    avatar_directory: '%kernel.root_dir%/../web/avatar'
+    store_directory: '%kernel.root_dir%/../web/avatar/'
+    avatar_directory: '/avatar/'
+    game_image_directory: '/game/'
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }

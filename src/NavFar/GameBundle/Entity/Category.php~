@@ -67,4 +67,45 @@ class Category
     {
         return $this->name;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categorizes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add categorize
+     *
+     * @param \NavFar\GameBundle\Entity\Categorize $categorize
+     *
+     * @return Category
+     */
+    public function addCategorize(\NavFar\GameBundle\Entity\Categorize $categorize)
+    {
+        $this->categorizes[] = $categorize;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorize
+     *
+     * @param \NavFar\GameBundle\Entity\Categorize $categorize
+     */
+    public function removeCategorize(\NavFar\GameBundle\Entity\Categorize $categorize)
+    {
+        $this->categorizes->removeElement($categorize);
+    }
+
+    /**
+     * Get categorizes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorizes()
+    {
+        return $this->categorizes;
+    }
 }

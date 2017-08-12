@@ -29,6 +29,21 @@ class Score
     private $amount;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="level", type="integer")
+     */
+    private $level;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="displacement", type="integer")
+     */
+    private $displacement;
+
+
+    /**
     * @ORM\ManyToOne(targetEntity="Game", inversedBy="scores")
     * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
     */
@@ -120,5 +135,61 @@ class Score
     public function getUser()
     {
         return $this->user;
+    }
+    public function toArray($baseURL){
+        return array(
+          'score'=>$this->amount,
+          'level'=>$this->level,
+          'displacement'=>$this->displacement,
+          'player'=>$this->user->toArray($baseURL)
+        );
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     *
+     * @return Score
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * Set displacement
+     *
+     * @param integer $displacement
+     *
+     * @return Score
+     */
+    public function setDisplacement($displacement)
+    {
+        $this->displacement = $displacement;
+
+        return $this;
+    }
+
+    /**
+     * Get displacement
+     *
+     * @return integer
+     */
+    public function getDisplacement()
+    {
+        return $this->displacement;
     }
 }

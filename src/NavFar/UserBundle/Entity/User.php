@@ -271,4 +271,9 @@ class User
     {
         return $this->comments;
     }
+    public function toArray($baseURL){
+      return array('name'=>$this->username,
+                   'avatar'=>$baseURL.$this->image,
+                  );
+    }
 }

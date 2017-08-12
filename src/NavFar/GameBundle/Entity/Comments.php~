@@ -28,6 +28,19 @@ class Comments
      */
     private $content;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rate", type="float")
+     */
+    private $rate;
 
     /**
     * @ORM\ManyToOne(targetEntity="Game", inversedBy="comments")
@@ -73,5 +86,107 @@ class Comments
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set game
+     *
+     * @param \NavFar\GameBundle\Entity\Game $game
+     *
+     * @return Comments
+     */
+    public function setGame(\NavFar\GameBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \NavFar\GameBundle\Entity\Game
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \NavFar\UserBundle\Entity\User $user
+     *
+     * @return Comments
+     */
+    public function setUser(\NavFar\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \NavFar\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    public function toArray($avatarBase,$ImageBase){
+      return array('text'=>$this->content,
+                   'rate'=>$this->rate,
+                   'player'=>$this->user->toArray($avatarBase),
+                   'game'=>$this->game->toArray($ImageBase));
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Comments
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set rate
+     *
+     * @param integer $rate
+     *
+     * @return Comments
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return integer
+     */
+    public function getRate()
+    {
+        return $this->rate;
     }
 }

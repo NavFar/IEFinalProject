@@ -1,0 +1,151 @@
+header{
+}
+.mid{
+  width: 50%!important;
+  margin: 0 auto!important;
+  position: static!important;
+}
+header .mid{
+  margin-top: 10px!important;
+}
+.lfloat{
+  float: left;
+}
+.rfloat{
+  float:right;
+}
+.footerItem{
+  color: #21a2e6;
+  margin-top: 40px;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#footerLink{
+  color: gray!important;
+  margin-top: 30px;
+  font-size: 25px!important;
+}
+#footerLink:hover{
+  text-decoration:none;
+}
+#footerCopyRight{
+  background-color: #e1e1e1;
+  color: #9c9c9c;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 27px;
+  clear: both;
+  margin-top: 20px!important;
+}
+.clear{
+  clear: both;
+}
+#footerLinks{
+  /*margin-top: 30px;*/
+  /*background-color: red ;*/
+}
+.socialLinks{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  color: black!important;
+  font-size: 30px!important;
+}
+.rtl{
+  direction: rtl;
+}
+.blue{
+  color: #0090e3;
+
+}
+img{
+  width: 100%;
+}
+.footer{
+  background-color: #f9f9f9;
+}
+.header{
+  /*position: absolute;*/
+  z-index: 50;
+  overflow: hidden;
+}
+.fixed{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  /*margin-left: 25%;*/
+  padding-left: 25%;
+  padding-right: 25%;
+  /*margin-right: 25%;*/
+  font-size: 25px!important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+}
+.block{
+  display: block;
+}
+#headerLink{
+  margin-top: 0;
+  /*margin-top: 10px;*/
+  color: gray!important;
+  font-size: 25px!important;
+}
+
+#headerLink:hover{
+  text-decoration:none;
+}
+.headerLogin{
+  padding-top: 12px;
+  color: gray!important;
+  font-size: 25px!important;
+}
+.leftmargin{
+  margin-left: 10px!important;
+  margin-right: 20px;
+}
+.searchbox{
+  padding-top: 12px;
+}
+.headerMargin{
+  margin-top: 80px!important;
+  margin-bottom: 120px!important;
+}
+#search{
+  direction: rtl;
+  padding-right: 7px;
+  margin-left: -30px;
+  padding-left: 30px;
+  border-radius: 50px;
+  height: 26px;
+}
+.underLine{
+  /*text-decoration: underline;*/
+  border-bottom: 1px solid ;
+  padding-bottom: 3px;
+}
+
+.noUnderLine{
+  text-decoration: none!important;
+}
+.inline{
+  font-size: 20px;
+  display: inline;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.inline::before{
+  content: "("
+}
+.inline::after{
+  content: "نظر) "
+}
+.noDisplay{
+  display: none;
+}
+.overflow{
+  overflow: hidden;
+}

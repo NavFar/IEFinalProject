@@ -28,6 +28,19 @@ class Comments
      */
     private $content;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="rate", type="float")
+     */
+    private $rate;
 
     /**
     * @ORM\ManyToOne(targetEntity="Game", inversedBy="comments")
@@ -121,5 +134,60 @@ class Comments
     public function getUser()
     {
         return $this->user;
+    }
+    public function toArray($avatarBase,$ImageBase){
+      return array('text'=>$this->content,
+                   'rate'=>$this->rate,
+                   'date'=>$this->date->format('Y-m-d'),
+                   'player'=>$this->user->toArray($avatarBase),
+                   'game'=>$this->game->toArray($ImageBase));
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Comments
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set rate
+     *
+     * @param integer $rate
+     *
+     * @return Comments
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return integer
+     */
+    public function getRate()
+    {
+        return $this->rate;
     }
 }

@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+	  <title>لیست بازی</title>
+	  <meta name="description" content="صفحه بازی">
+	  <meta name="author" content="Navid Farahmand">
+
+		<link rel="stylesheet" href="../styles/global.css">
+	  <link rel="stylesheet" href="../styles/games.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/games.js"></script>
+	</head>
+  <body>
+		<div class="headerColor">
+		<div class="header fixed">
+			<a class="rfloat btn btn-link block material-icons" id="headerLink" href="./home">امیرکبیراستودیو <i class="mdi mdi-gamepad-variant "></i></a>
+			{% if  username is null %}
+			<a class="lfloat headerLogin block noUnderLine" href="./login">ورود</a><a href="./login" class="lfloat headerLogin block noUnderLine mdi mdi-account leftmargin"></a>
+			{% else %}
+			<a class="lfloat headerLogin block noUnderLine" href="./logout">خروج</a><a href="{{path('profileGET',{'username':username})}}" class="lfloat headerLogin block noUnderLine mdi mdi-account leftmargin"></a>
+			{% endif %}
+
+			<div class="lfloat searchbox"><a class="mdi mdi-magnify" onclick="searchfunc()"></a><input type="text" id="search" name="search" placeholder="جستجو ...."></div>
+		</div>
+		</div>
+		<div class="headerMargin">
+      <div class="banner">
+        <div class="mid bannerContainer">
+          <!-- <button type="button" class="btn btn-primary lfloat" id="startGame">شروع بازی</button>
+          <div class="bannerData rfloat ">
+              <div class="bannerImage rfloat">
+              </div>
+              <div class="rfloat bannerContent">
+              <div class="bannerTitle ">
+                Battle Field4 :Dragon's Teeth
+              </div>
+              <div class="bannerCateg ">
+                <i class="underLine">اکشن</i> , <i class="underLine">اول شخص</i> , <i class="underLine">مولتی پلیر</i>
+              </div>
+              <div class="bannerRating rfloat">
+                <i class="bannerStar">
+                  (84)
+                  4.3
+                  <i class="mdi mdi-star  "></i>
+                  <i class="mdi mdi-star  "></i>
+    							<i class="mdi mdi-star  blue"></i>
+    							<i class="mdi mdi-star  blue"></i>
+    							<i class="mdi mdi-star  blue"></i>
+                </i>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="tabSelector">
+        <div class="mid">
+          <span class="tabName  rfloat " id="t0" onclick="changeTab(this)">
+            اطلاعات بازی
+          </span>
+          <span class="tabName rfloat" id="t1" onclick="changeTab(this)">
+          رتبه و امتیاز
+          </span>
+          <span class="tabName rfloat" id="t2" onclick="changeTab(this)">
+            نظرات کاربران
+          </span>
+          <span class="tabName rfloat" id="t3" onclick="changeTab(this)">
+            بازی های مشابه
+          </span>
+          <span class="tabName rfloat" id="t4" onclick="changeTab(this)">
+            عکس ها و وئدیوها
+          </span>
+        </div>
+      </div>
+      <div class="mid">
+        <div class="tabContent hidden" id="c0">
+					<h1>          اطلاعات بازی </h1><hr>
+					<div id="ci0">
+					</div>
+        </div>
+        <div class="tabContent hidden" id="c1">
+					<h1>
+						          رتبه بندی وامتیازات
+					</h1>
+					<hr>
+
+					<div id="ci1"  class="overflow borderStyle">
+					</div>
+        </div>
+        <div class="tabContent hidden" id="c2" >
+					<button type="button" class="btn btn-primary lfloat"  id="commentSave">
+						نظر دهید
+					</button>
+					<h1>
+						          نظرات کاربران
+											<span id="comNum" class='inline'></id>
+					</h1>
+					<hr>
+<div id="ci2" lang="fa">
+</div>
+          <!-- <div class="commentRow commentDark">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+          </div>
+          <div class="commentRow ">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+          </div>
+          <div class="commentRow commentDark">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+
+          </div>
+          <div class="commentRow ">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+          </div>
+          <div class="commentRow commentDark">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+
+          </div>
+          <div class="commentRow ">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+          </div>
+          <div class="commentRow commentDark">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+
+          </div>
+          <div class="commentRow ">
+            <div class="commentAvatar rfloat"></div>
+            <div class="commentStars lfloat">
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars blue"></i>
+              <i class="mdi mdi-star stars "></i>
+            </div>
+            <div class="commentDate">۲۲ آذر</div>
+            <div class="commentContent">بازی بسیار خوبی بود دمت گرم </div>
+          </div> -->
+        </div>
+        <div class="tabContent hidden" id="c3">
+          <h1 class="clear">
+ بازی های مشابه
+          </h1>
+          <hr>
+<div class="rfloat results" id="ci3">
+<!-- </div>
+  				<div  id="gameResultPlace"> -->
+  					<!-- <div class="resultRow">
+              <div class="resultGame">
+  							<div class="resultGameImage">
+  							</div>
+  							<div class="resultGameTitle blue">
+  								Fifa 17
+  							</div>
+  							<div class="resultGameCate">
+  								ورزشی فوتبالی
+  							</div>
+  							<div class="resultGameStars">
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars "></i>
+  							</div>
+  						</div>
+              <div class="resultGame">
+                <div class="resultGameImage">
+                </div>
+                <div class="resultGameTitle blue">
+                  Fifa 17
+                </div>
+                <div class="resultGameCate">
+                  ورزشی فوتبالی
+                </div>
+                <div class="resultGameStars">
+                  <i class="mdi mdi-star stars blue"></i>
+                  <i class="mdi mdi-star stars blue"></i>
+                  <i class="mdi mdi-star stars blue"></i>
+                  <i class="mdi mdi-star stars blue"></i>
+                  <i class="mdi mdi-star stars "></i>
+                </div>
+              </div>
+
+  						<div class="resultGame">
+  							<div class="resultGameImage">
+  							</div>
+  							<div class="resultGameTitle blue">
+  								Fifa 17
+  							</div>
+  							<div class="resultGameCate">
+  								ورزشی فوتبالی
+  							</div>
+  							<div class="resultGameStars">
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars "></i>
+  							</div>
+  						</div>
+
+  						<div class="resultGame">
+  							<div class="resultGameImage">
+  							</div>
+  							<div class="resultGameTitle blue">
+  								Fifa 17
+  							</div>
+  							<div class="resultGameCate">
+  								ورزشی فوتبالی
+  							</div>
+  							<div class="resultGameStars">
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars blue"></i>
+  								<i class="mdi mdi-star stars "></i>
+  							</div>
+  						</div>
+  					</div>
+
+  						<div class="resultRow">
+                <div class="resultGame">
+                  <div class="resultGameImage">
+                  </div>
+                  <div class="resultGameTitle blue">
+                    Fifa 17
+                  </div>
+                  <div class="resultGameCate">
+                    ورزشی فوتبالی
+                  </div>
+                  <div class="resultGameStars">
+                    <i class="mdi mdi-star stars blue"></i>
+                    <i class="mdi mdi-star stars blue"></i>
+                    <i class="mdi mdi-star stars blue"></i>
+                    <i class="mdi mdi-star stars blue"></i>
+                    <i class="mdi mdi-star stars "></i>
+                  </div>
+                </div>
+  							<div class="resultGame">
+  								<div class="resultGameImage">
+  								</div>
+  								<div class="resultGameTitle blue">
+  									Fifa 17
+  								</div>
+  								<div class="resultGameCate">
+  									ورزشی فوتبالی
+  								</div>
+  								<div class="resultGameStars">
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars "></i>
+  								</div>
+  							</div>
+
+  							<div class="resultGame">
+  								<div class="resultGameImage">
+  								</div>
+  								<div class="resultGameTitle blue">
+  									Fifa 17
+  								</div>
+  								<div class="resultGameCate">
+  									ورزشی فوتبالی
+  								</div>
+  								<div class="resultGameStars">
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars "></i>
+  								</div>
+  							</div>
+
+  							<div class="resultGame">
+  								<div class="resultGameImage">
+  								</div>
+  								<div class="resultGameTitle blue">
+  									Fifa 17
+  								</div>
+  								<div class="resultGameCate">
+  									ورزشی فوتبالی
+  								</div>
+  								<div class="resultGameStars">
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars blue"></i>
+  									<i class="mdi mdi-star stars "></i>
+  								</div>
+  							</div>
+  						</div>
+
+
+  							<div class="resultRow">
+                  <div class="resultGame">
+                    <div class="resultGameImage">
+                    </div>
+                    <div class="resultGameTitle blue">
+                      Fifa 17
+                    </div>
+                    <div class="resultGameCate">
+                      ورزشی فوتبالی
+                    </div>
+                    <div class="resultGameStars">
+                      <i class="mdi mdi-star stars blue"></i>
+                      <i class="mdi mdi-star stars blue"></i>
+                      <i class="mdi mdi-star stars blue"></i>
+                      <i class="mdi mdi-star stars blue"></i>
+                      <i class="mdi mdi-star stars "></i>
+                    </div>
+                  </div>
+  								<div class="resultGame">
+  									<div class="resultGameImage">
+  									</div>
+  									<div class="resultGameTitle blue">
+  										Fifa 17
+  									</div>
+  									<div class="resultGameCate">
+  										ورزشی فوتبالی
+  									</div>
+  									<div class="resultGameStars">
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars "></i>
+  									</div>
+  								</div>
+
+  								<div class="resultGame">
+  									<div class="resultGameImage">
+  									</div>
+  									<div class="resultGameTitle blue">
+  										Fifa 17
+  									</div>
+  									<div class="resultGameCate">
+  										ورزشی فوتبالی
+  									</div>
+  									<div class="resultGameStars">
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars "></i>
+  									</div>
+  								</div>
+
+  								<div class="resultGame">
+  									<div class="resultGameImage">
+  									</div>
+  									<div class="resultGameTitle blue">
+  										Fifa 17
+  									</div>
+  									<div class="resultGameCate">
+  										ورزشی فوتبالی
+  									</div>
+  									<div class="resultGameStars">
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars blue"></i>
+  										<i class="mdi mdi-star stars "></i>
+  									</div>
+  								</div>
+  							</div> -->
+  				</div>
+
+        </div>
+        <div class="tabContent hidden" id="c4">
+					<h1>
+						          عکس ها و وئدیوها
+					</h1>
+					<hr>
+					<div id="ci4">
+					</div>
+        </div>
+      </div>
+		</div>
+
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content">
+			    <div class="modal-header">
+			      <span class="close ">&times;</span>
+			      <h2>نظر خود را ثبت کنید</h2>
+			    </div>
+			    <div class="modal-body">
+						<textarea id="commentText" class="rfloat" rows="4" cols="50" placeholder="نظر خود را بنویسید">
+							</textarea>
+							<input type='number' id="rate" min="0" max="5" class=""/>
+							<button type="button" class="btn btn-primary lfloat"  id="saveComment">ثبت نظر</button>
+			    </div>
+			    </div>
+			  </div>
+
+
+
+    <div class="footer">
+        <div class="mid" id="footerLinks">
+          <div class="rfloat footerItem">صفحه اصلی</div>
+          <div class="rfloat footerItem">درباره ما</div>
+          <div class="rfloat footerItem">درباره ماارتباط با سازندگان</div>
+          <div class="rfloat footerItem">سوالات متداول</div>
+          <div class="rfloat footerItem">حریم خصوصی</div>
+          <a class="noUnderLine block lfloat btn btn-link material-icons" id="footerLink" href="./home">امیرکبیراستودیو <i class="mdi mdi-gamepad-variant"></i></a>
+          <a href="#"><div class="clear rfloat socialLinks mdi-facebook-box" ></div></a>
+          <a href="#"><div class=" rfloat socialLinks mdi mdi-twitter-box"></div></a>
+          <a href="#"><div class=" rfloat socialLinks mdi mdi-instagram"></div></a>
+        </div>
+        <div id="footerCopyRight">
+          تمام حقوق محفوظ و متعلق به دانشگاه امیرکبیر است
+        </div>
+    </div>
+  </body>
+</html>

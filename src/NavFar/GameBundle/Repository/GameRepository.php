@@ -10,4 +10,14 @@ namespace NavFar\GameBundle\Repository;
  */
 class GameRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getSimilarNameGame($input){
+    $em=$this->getEntityManager();
+    $query=$em->createQuery('SELECT g FROM NavFarGameBundle:Game g WHERE g.title like :input')->setParameter('input','%'.$input.'%');
+    return $query->getResult();
+  }
+  public function getNewGames($max=5){
+    $em=$this->getEntityManager();
+    $query=$em->createQuery('SELECT g FROM NavFarGameBundle:Game g order by g.id DESC');
+    return $query->getResult();
+  }
 }

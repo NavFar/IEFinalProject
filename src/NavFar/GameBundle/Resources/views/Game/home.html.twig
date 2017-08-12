@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+
+	  <title>خانه</title>
+	  <meta name="description" content="صفحه اصلی">
+	  <meta name="author" content="Navid Farahmand">
+
+	  <link rel="stylesheet" href="../styles/global.css">
+	  <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../owl/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owl/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script src="../js/global.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../owl/owl.carousel.min.js"></script>
+    <script src="../owl/owl.carousel.js"></script>
+
+
+	</head>
+	<body>
+  <div class="poster">
+    <div class="mid header" id="logs">
+			{% if username is null%}
+      <button type="button" class="btn btn-primary lfloat" onclick="location.href='./register'" id="signup">ثبت نام</button>
+      <button type="button" class="btn btn-link lfloat" id="signin" onclick="location.href='./login'">ورود</button>
+			{% else %}
+			<button type="button" class="btn btn-primary lfloat" onclick="location.href='{{path('profileGET',{'username':username})}}'" id="signup">پروفایل</button>
+      <button type="button" class="btn btn-link lfloat" id="signin" onclick="location.href='./logout'">خروج</button>
+			{% endif %}
+      <a class="rfloat btn btn-link material-icons noUnderLine" id="link" href="./home">امیرکبیراستودیو <i class="mdi mdi-gamepad-variant"></i></a>
+    </div>
+    <div class="mid posterText" >
+    <span id="tit">
+
+		</span>
+    <div id="desc">
+    </div>
+    <div id="posterButtons" class="rfloat">
+      <button type="button" class="btn btn-primary " id="goGame"> ورود به صفحه بازی</button>
+      <div class=" btn btn-link material-icons noUnderLine" id="trailer">تریلراین بازی <i class="mdi mdi-play-circle"></i></div>
+    </div>
+  </div>
+</div>
+
+<div class="owl-carousel owl-theme clear" id="firstOwl">
+  <!-- <div class="item changer">
+    <div class="inner">
+      <div class='gameName'>بازی Battle Field</div>
+      <div class="numComment">73</div>
+			<div class="noDisplay"></div>
+      <button class=" btn slider-btn"  href="#">ورود به صفحه بازی</button>
+    </div>
+  </div> -->
+</div>
+
+<div class="mid gameListContainer">
+  <div class="rfloat"><h1>جدیدترین بازی ها</h1></div>
+<div class="owl-carousel owl-theme clear justClass" id="secondOwl">
+</div>
+</div>
+
+<div id="tusuContainer">
+<div id="tusu" class="mid rtl">
+  <h1>نظرات کاربران وراهنمای بازی ها</h1>
+  <br>
+  <div class="lfloat" id="tu">
+    <h2>آخرین راهنماهای بازی</h2>
+  </div>
+  <div class="rfloat" id="su">
+    <h2>نظرات و گفتگوها</h2>
+  </div>
+</div>
+</div>
+
+<div class="bottomPoster">
+<div class="bottomPosterSmall">
+  به جامعه بازی سازان امیرکبیر بپیوندید
+<div class="bottomPosterSmall" id="second">
+  بیش از ۵۰۰۰ عضو از سراسر کشور
+</div>
+<button class=" btn" id="joinus" href="#">به ما بپیوندید</button>
+</div>
+</div>
+<div class="footer">
+    <div class="mid" id="footerLinks">
+      <div class="rfloat footerItem">صفحه اصلی</div>
+      <div class="rfloat footerItem">درباره ما</div>
+      <div class="rfloat footerItem">درباره ماارتباط با سازندگان</div>
+      <div class="rfloat footerItem">سوالات متداول</div>
+      <div class="rfloat footerItem">حریم خصوصی</div>
+      <a class="lfloat btn btn-link material-icons noUnderLine" id="footerLink" href="./home">امیرکبیراستودیو <i class="mdi mdi-gamepad-variant"></i></a>
+      <a href="#"><div class="clear rfloat socialLinks mdi-facebook-box" ></div></a>
+      <a href="#"><div class=" rfloat socialLinks mdi mdi-twitter-box"></div></a>
+      <a href="#"><div class=" rfloat socialLinks mdi mdi-instagram"></div></a>
+    </div>
+    <div id="footerCopyRight">
+      تمام حقوق محفوظ و متعلق به دانشگاه امیرکبیر است
+    </div>
+</div>
+	</body>
+</html>

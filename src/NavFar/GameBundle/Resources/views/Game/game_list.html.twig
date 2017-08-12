@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fa">
+	<head>
+	  <meta charset="utf-8">
+	  <title>لیست بازی</title>
+	  <meta name="description" content="لیست بازی">
+	  <meta name="author" content="Navid Farahmand">
+
+	  <link rel="stylesheet" href="../styles/global.css">
+	  <link rel="stylesheet" href="../styles/game_list.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.7.22/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="../js/global.js"></script>
+    <script src="../js/game_list.js"></script>
+	</head>
+  <body>
+		<div class="headerColor">
+		<div class="header fixed">
+			<a class="rfloat btn btn-link block material-icons" id="headerLink" href="./home">امیرکبیراستودیو <i class="mdi mdi-gamepad-variant "></i></a>
+			{% if  username is null %}
+			<a class="lfloat headerLogin block noUnderLine" href="./login">ورود</a><a href="./login" class="lfloat headerLogin block noUnderLine mdi mdi-account leftmargin"></a>
+			{% else %}
+			<a class="lfloat headerLogin block noUnderLine" href="./logout">خروج</a><a href="{{path('profileGET',{'username':username})}}" class="lfloat headerLogin block noUnderLine mdi mdi-account leftmargin"></a>
+			{% endif %}
+			<div class="lfloat searchbox"><a class="mdi mdi-magnify" onclick="searchfunc()"></a><input type="text" id="search" name="search" placeholder="جستجو ...."></div>
+		</div>
+		</div>
+		<div class="headerMargin">
+			<div class="gameListTopImage">
+				<div class="mid">
+				<div class="rfloat"id="searchTitle">
+					FiFa
+				</div>
+			</div>
+			</div>
+			<div class="mid gamelistRAContainer">
+				<div class="rfloat actions">
+					<div class="gameCategory" id="CategoryContainer">
+						<div class="categoryTitle">
+							دسته بندی بازی ها
+						</div>
+					</div>
+					<div class="gameScore">
+						<div class="categoryTitle">
+							امتیاز بازی
+						</div>
+						<div class="categoryOption" onclick="changeRate(this)" id="rat5">
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+						</div>
+						<div class="categoryOption" onclick="changeRate(this)" id="rat4">
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars "></i>
+						</div>
+						<div class="categoryOption" onclick="changeRate(this)" id="rat3">
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+						</div>
+						<div class="categoryOption" onclick="changeRate(this)" id="rat2">
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+						</div>
+						<div class="categoryOption" onclick="changeRate(this)" id="rat1">
+							<i class="mdi mdi-star stars blue"></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+						</div>
+						<div class="categoryOption" onclick="changeRate(this)" id="rat0">
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+							<i class="mdi mdi-star stars "></i>
+						</div>
+					</div>
+				</div>
+				<div class="rfloat results" id="gameResultPlace">
+
+				</div>
+			</div>
+		</div>
+    <div class="footer">
+        <div class="mid" id="footerLinks">
+          <a class="rfloat footerItem" href="#">صفحه اصلی</a>
+          <a class="rfloat footerItem" href="#">درباره ما</a>
+          <a class="rfloat footerItem" href="#">ارتباط با سازندگان</a>
+          <a class="rfloat footerItem" href="#">سوالات متداول</a>
+          <a class="rfloat footerItem" href="#">حریم خصوصی</a>
+          <a class="lfloat btn btn-link material-icons block" id="footerLink" href="./home">امیرکبیراستودیو <i class="mdi mdi-gamepad-variant"></i></a>
+          <a href="#"><div class="clear rfloat socialLinks mdi-facebook-box" ></div></a>
+          <a href="#"><div class=" rfloat socialLinks mdi mdi-twitter-box"></div></a>
+          <a href="#"><div class=" rfloat socialLinks mdi mdi-instagram"></div></a>
+        </div>
+        <div id="footerCopyRight">
+          تمام حقوق محفوظ و متعلق به دانشگاه امیرکبیر است
+        </div>
+    </div>
+  </body>
+</html>

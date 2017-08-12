@@ -42,4 +42,52 @@ class Categorize
     {
         return $this->id;
     }
+
+    /**
+     * Set game
+     *
+     * @param \NavFar\GameBundle\Entity\Game $game
+     *
+     * @return Categorize
+     */
+    public function setGame(\NavFar\GameBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \NavFar\GameBundle\Entity\Game
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \NavFar\GameBundle\Entity\Category $category
+     *
+     * @return Categorize
+     */
+    public function setCategory(\NavFar\GameBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \NavFar\GameBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
